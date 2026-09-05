@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StepTwo = ({ formData, handleChange }) => {
+const Step2 = ({ formData, handleChange }) => {
   return (
     <div>
       <div className="text-center mb-4">
@@ -110,4 +110,4 @@ const StepTwo = ({ formData, handleChange }) => {
   );
 };
 
-export default StepTwo;
+export default Step2;

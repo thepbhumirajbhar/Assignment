@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StepOne = ({ formData, handleChange }) => {
+const Step1 = ({ formData, handleChange }) => {
   return (
     <div>
       <h2 className="text-xl font-bold text-center text-gray-900 mb-5">
@@ -87,4 +87,4 @@ const StepOne = ({ formData, handleChange }) => {
   );
 };
 
-export default StepOne;
+export default Step1;
