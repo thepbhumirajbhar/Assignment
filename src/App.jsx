@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MultiStepModal from './components/MultiStepModal';
 
 function App() {
   const [openModal, setOpenModal] = useState(true);
@@ -11,6 +12,11 @@ function App() {
       >
         + Create Project
       </button>
+
+      <MultiStepModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
     </div>
   );
 }
