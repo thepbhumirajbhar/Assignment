@@ -11,8 +11,15 @@ const StepThree = ({ formData, handleChange }) => {
       </div>
 
       <div className="grid grid-cols-2 gap-4 my-6">
-        {/* List View Card */}
-        <div className="border border-gray-200 rounded-xl p-5 flex flex-col items-center justify-center text-center">
+        {/* List View with Active Border */}
+        <div
+          onClick={() => handleChange('viewType', 'List')}
+          className={`cursor-pointer rounded-xl border p-5 flex flex-col items-center justify-center text-center transition ${
+            formData.viewType === 'List'
+              ? 'border-blue-500 shadow-sm'
+              : 'border-gray-200 hover:border-gray-300'
+          }`}
+        >
           <div className="mb-3 h-14 flex items-center justify-center">
             <svg className="w-12 h-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <rect x="4" y="3" width="16" height="18" rx="2" strokeWidth="1.5" />
@@ -25,8 +32,15 @@ const StepThree = ({ formData, handleChange }) => {
           <span className="text-xs font-semibold text-gray-700">List</span>
         </div>
 
-        {/* Board View Card */}
-        <div className="border border-gray-200 rounded-xl p-5 flex flex-col items-center justify-center text-center">
+        {/* Board View with Active Border */}
+        <div
+          onClick={() => handleChange('viewType', 'Board')}
+          className={`cursor-pointer rounded-xl border p-5 flex flex-col items-center justify-center text-center transition ${
+            formData.viewType === 'Board'
+              ? 'border-blue-500 shadow-sm'
+              : 'border-gray-200 hover:border-gray-300'
+          }`}
+        >
           <div className="mb-3 h-14 flex items-center justify-center">
             <svg className="w-12 h-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <rect x="3" y="4" width="5" height="10" rx="1" strokeWidth="1.5" />
