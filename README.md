@@ -10,4 +10,11 @@
   - App.jsx
 
 
+
+  # TECH STACK
+- React.js
+- Tailwind CSS
+- Vite
+
+
   
