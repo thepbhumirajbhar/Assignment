@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Step1 = ({ formData, handleChange }) => {
+const StepOne = ({ formData, handleChange }) => {
   return (
     <div>
       <h2 className="text-xl font-bold text-center text-gray-900 mb-5">
@@ -46,9 +46,45 @@ const Step1 = ({ formData, handleChange }) => {
             </button>
           </div>
         </div>
+
+        {/* Dates */}
+        <div>
+          <label className="block text-xs font-semibold text-gray-700 mb-1">
+            Dates
+          </label>
+          <div className="flex items-center gap-2">
+            <input
+              type="date"
+              value={formData.startDate}
+              onChange={(e) => handleChange('startDate', e.target.value)}
+              className="w-1/2 border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-700 focus:outline-none"
+            />
+            <span className="text-gray-400">-</span>
+            <input
+              type="date"
+              value={formData.endDate}
+              onChange={(e) => handleChange('endDate', e.target.value)}
+              className="w-1/2 border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-700 focus:outline-none"
+            />
+          </div>
+        </div>
+
+        {/* Notes */}
+        <div>
+          <label className="block text-xs font-semibold text-gray-700 mb-1">
+            Notes
+          </label>
+          <textarea
+            rows="3"
+            placeholder="Optional"
+            value={formData.notes}
+            onChange={(e) => handleChange('notes', e.target.value)}
+            className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Step1;
+export default StepOne;
