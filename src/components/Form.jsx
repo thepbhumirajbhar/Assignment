@@ -61,16 +61,16 @@ const Form = ({ isOpen = true, onClose }) => {
 
         <div className="mt-2">
           {currentStep === 1 && (
-            <StepOne formData={formData} handleChange={handleChange} />
+            <Step1 formData={formData} handleChange={handleChange} />
           )}
           {currentStep === 2 && (
-            <StepTwo formData={formData} handleChange={handleChange} />
+            <Step2 formData={formData} handleChange={handleChange} />
           )}
           {currentStep === 3 && (
-            <StepThree formData={formData} handleChange={handleChange} />
+            <Step3 formData={formData} handleChange={handleChange} />
           )}
           {currentStep === 4 && (
-            <StepFour formData={formData} handleChange={handleChange} />
+            <Step4 formData={formData} handleChange={handleChange} />
           )}
         </div>
 

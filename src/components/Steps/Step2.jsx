@@ -11,7 +11,7 @@ const Step2 = ({ formData, handleChange }) => {
       </div>
 
       {/* Segmented Tabs */}
-      <div className="grid grid-cols-3 border border-gray-200 rounded-lg p-1 mb-4">
+      <div className="grid grid-cols-3 border border-gray-200 rounded-lg p-1 mb-4 pb-10">
         {['Time & Materials', 'Fixed Fee', 'Non-Billable'].map((tab) => (
           <button
             key={tab}

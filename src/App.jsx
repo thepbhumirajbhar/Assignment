@@ -13,7 +13,7 @@ function App() {
         + Create Project
       </button>
 
-      <MultiStepModal
+      <Form
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
       />

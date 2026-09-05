@@ -2,53 +2,104 @@ import React from 'react';
 
 const Step3 = ({ formData, handleChange }) => {
   return (
-    <div>
-      <div className="text-center mb-5">
-        <h2 className="text-xl font-bold text-gray-900">Select a view</h2>
-        <p className="text-xs text-gray-500 mt-1">
+    <div className="w-full">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
+          Select a view
+        </h2>
+        <p className="text-xs text-gray-400 mt-1.5 font-normal">
           You can also customize this views in settings
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 my-6">
-        {/* List View with Active Border */}
+      {/* Cards Grid */}
+      <div className="grid grid-cols-2 gap-5 my-6 pb-28">
+        {/* 1. List View Option */}
         <div
           onClick={() => handleChange('viewType', 'List')}
-          className={`cursor-pointer rounded-xl border p-5 flex flex-col items-center justify-center text-center transition ${
-            formData.viewType === 'List'
-              ? 'border-blue-500 shadow-sm'
-              : 'border-gray-200 hover:border-gray-300'
-          }`}
+          className="cursor-pointer flex flex-col items-center select-none"
         >
-          <div className="mb-3 h-14 flex items-center justify-center">
-            <svg className="w-12 h-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <rect x="4" y="3" width="16" height="18" rx="2" strokeWidth="1.5" />
-              <rect x="7" y="7" width="3" height="3" rx="0.5" strokeWidth="1.5" />
-              <line x1="12" y1="8.5" x2="17" y2="8.5" strokeWidth="1.5" />
-              <rect x="7" y="13" width="3" height="3" rx="0.5" strokeWidth="1.5" />
-              <line x1="12" y1="14.5" x2="17" y2="14.5" strokeWidth="1.5" />
+          <div
+            className={`w-full h-36 rounded-xl border flex items-center justify-center transition-all ${
+              formData.viewType === 'List'
+                ? 'border-[1.5px] border-blue-500 shadow-sm'
+                : 'border-gray-200 hover:border-gray-300'
+            }`}
+          >
+            {/* Exact List SVG Icon */}
+            <svg
+              className="w-16 h-16 text-gray-400"
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+            >
+              <rect x="12" y="8" width="40" height="48" rx="4" />
+              {/* Checkbox 1 */}
+              <rect x="18" y="18" width="8" height="8" rx="1.5" />
+              <line x1="30" y1="20" x2="44" y2="20" strokeLinecap="round" />
+              <line x1="30" y1="24" x2="38" y2="24" strokeLinecap="round" />
+              {/* Checkbox 2 */}
+              <rect x="18" y="32" width="8" height="8" rx="1.5" />
+              <line x1="30" y1="34" x2="44" y2="34" strokeLinecap="round" />
+              <line x1="30" y1="38" x2="38" y2="38" strokeLinecap="round" />
             </svg>
           </div>
-          <span className="text-xs font-semibold text-gray-700">List</span>
+
+          <span
+            className={`mt-3 text-xs font-medium transition-colors ${
+              formData.viewType === 'List' ? 'text-gray-900 font-semibold' : 'text-gray-400'
+            }`}
+          >
+            List
+          </span>
         </div>
 
-        {/* Board View with Active Border */}
+        {/* 2. Board View Option */}
         <div
           onClick={() => handleChange('viewType', 'Board')}
-          className={`cursor-pointer rounded-xl border p-5 flex flex-col items-center justify-center text-center transition ${
-            formData.viewType === 'Board'
-              ? 'border-blue-500 shadow-sm'
-              : 'border-gray-200 hover:border-gray-300'
-          }`}
+          className="cursor-pointer flex flex-col items-center select-none"
         >
-          <div className="mb-3 h-14 flex items-center justify-center">
-            <svg className="w-12 h-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <rect x="3" y="4" width="5" height="10" rx="1" strokeWidth="1.5" />
-              <rect x="9.5" y="4" width="5" height="15" rx="1" strokeWidth="1.5" />
-              <rect x="16" y="4" width="5" height="12" rx="1" strokeWidth="1.5" />
+          <div
+            className={`w-full h-36 rounded-xl border flex items-center justify-center transition-all ${
+              formData.viewType === 'Board'
+                ? 'border-[1.5px] border-blue-500 shadow-sm'
+                : 'border-gray-200 hover:border-gray-300'
+            }`}
+          >
+            {/* Exact Kanban Board SVG Icon */}
+            <svg
+              className="w-16 h-16 text-gray-400"
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+            >
+              {/* Column 1 */}
+              <rect x="10" y="10" width="12" height="6" rx="1.5" />
+              <rect x="10" y="19" width="12" height="18" rx="1.5" />
+              <line x1="14" y1="25" x2="18" y2="25" strokeLinecap="round" />
+
+              {/* Column 2 (Middle - Longer) */}
+              <rect x="26" y="10" width="12" height="6" rx="1.5" />
+              <rect x="26" y="19" width="12" height="32" rx="1.5" />
+
+              {/* Column 3 */}
+              <rect x="42" y="10" width="12" height="6" rx="1.5" />
+              <rect x="42" y="19" width="12" height="24" rx="1.5" />
+              <line x1="46" y1="25" x2="50" y2="25" strokeLinecap="round" />
+              <line x1="46" y1="29" x2="50" y2="29" strokeLinecap="round" />
             </svg>
           </div>
-          <span className="text-xs font-semibold text-gray-800">Board</span>
+
+          <span
+            className={`mt-3 text-xs font-medium transition-colors ${
+              formData.viewType === 'Board' ? 'text-gray-900 font-semibold' : 'text-gray-400'
+            }`}
+          >
+            Board
+          </span>
         </div>
       </div>
     </div>
