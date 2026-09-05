@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MultiStepModal from './components/MultiStepModal';
+import Form from './components/Form';
 
 function App() {
   const [openModal, setOpenModal] = useState(true);
