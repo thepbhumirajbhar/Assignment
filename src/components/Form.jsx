@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import Step1 from './Steps/Step1';
+import Step2 from './Steps/Step2';
+import Step3 from './Steps/Step3';
+import Step4 from './Steps/step4';
 
 const Form = ({ isOpen = true, onClose }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -21,20 +25,24 @@ const Form = ({ isOpen = true, onClose }) => {
   });
 
   const handleChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
   const handleNext = () => {
-    if (currentStep < 4) setCurrentStep((prev) => prev + 1);
+    if (currentStep < 4) setCurrentStep(currentStep + 1);
   };
 
   const handleBack = () => {
-    if (currentStep > 1) setCurrentStep((prev) => prev - 1);
+    if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
+  // Final Form Submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted Data:', formData);
+    console.log('Final Form Data Submitted:', formData);
     alert('Project Created Successfully!');
     if (onClose) onClose();
   };
@@ -51,12 +59,22 @@ const Form = ({ isOpen = true, onClose }) => {
           ✕
         </button>
 
-        {/* Placeholder for Step Content */}
-        <div className="mt-2 min-h-[300px] flex items-center justify-center text-gray-400">
-          Step {currentStep} Component will render here
+        <div className="mt-2">
+          {currentStep === 1 && (
+            <StepOne formData={formData} handleChange={handleChange} />
+          )}
+          {currentStep === 2 && (
+            <StepTwo formData={formData} handleChange={handleChange} />
+          )}
+          {currentStep === 3 && (
+            <StepThree formData={formData} handleChange={handleChange} />
+          )}
+          {currentStep === 4 && (
+            <StepFour formData={formData} handleChange={handleChange} />
+          )}
         </div>
 
-        {/* Footer Navigation */}
+        {/* Navigation Action Bar */}
         <div className="mt-6 flex items-center justify-between">
           <button
             type="button"
@@ -68,11 +86,12 @@ const Form = ({ isOpen = true, onClose }) => {
             <span>‹</span> Back
           </button>
 
+          {/* Dynamic Next -> Submit Switch on Step 4 */}
           {currentStep === 4 ? (
             <button
               type="button"
               onClick={handleSubmit}
-              className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-6 py-2 rounded-lg transition"
+              className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-6 py-2 rounded-lg transition shadow"
             >
               Submit
             </button>
@@ -80,14 +99,14 @@ const Form = ({ isOpen = true, onClose }) => {
             <button
               type="button"
               onClick={handleNext}
-              className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-6 py-2 rounded-lg transition"
+              className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-6 py-2 rounded-lg transition shadow"
             >
               Next
             </button>
           )}
         </div>
 
-        {/* Progress Pill Indicator */}
+        {/* Step Indicator */}
         <div className="flex justify-center items-center gap-1.5 mt-5">
           {[1, 2, 3, 4, 5, 6].map((dot) => (
             <div
